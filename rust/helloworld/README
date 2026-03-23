@@ -1,0 +1,5 @@
+#RUST
+Source: main.rs
+Package Manager: cargo
+Dependency File: Cargo.toml
+Executeable File
