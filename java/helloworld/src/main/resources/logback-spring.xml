@@ -1,0 +1,21 @@
+<!-- Logback configuration: we print only the message payload because controller logs full JSON strings -->
+<configuration>
+  <!-- Define a console appender that writes to STDOUT -->
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- Encoder controls how the LoggingEvent is formatted. We keep it minimal. -->
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <!-- Pattern: print the logged message only, followed by newline -->
+      <pattern>%msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- Named logger for our application. Using `additivity="false"` prevents duplicate logging to root appenders. -->
+  <logger name="helloworld" level="INFO" additivity="false">
+    <appender-ref ref="STDOUT"/>
+  </logger>
+
+  <!-- Root logger: fallback for any logger that doesn't match explicitly. Configured to INFO and writes to STDOUT. -->
+  <root level="INFO">
+    <appender-ref ref="STDOUT"/>
+  </root>
+</configuration>

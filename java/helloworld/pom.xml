@@ -1,0 +1,46 @@
+<!-- Project descriptor for Maven: declares coordinates, dependencies and build plugins -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion> <!-- POM model version, always 4.0.0 for Maven 2+ -->
+
+    <!-- Coordinates: uniquely identify the artifact produced by this project -->
+    <groupId>com.example</groupId> <!-- organization or package prefix for the artifact -->
+    <artifactId>helloworld</artifactId> <!-- artifact (project) name -->
+    <version>0.0.1-SNAPSHOT</version> <!-- version; SNAPSHOT means in-development -->
+    <packaging>jar</packaging> <!-- artifact type produced by build -->
+
+    <!-- Use Spring Boot parent for sensible defaults, dependency management and plugin versions -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.6</version> <!-- Spring Boot BOM / parent version -->
+        <relativePath/> <!-- tells Maven not to look for a parent in a relative directory -->
+    </parent>
+
+    <properties>
+        <java.version>17</java.version> <!-- set Java source/target version for plugins and compilation -->
+    </properties>
+
+    <!-- Declare runtime and compile dependencies for the project -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId> <!-- brings Spring MVC and embedded server -->
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId> <!-- JSON (de)serialization library used by the controller and ObjectMapper -->
+        </dependency>
+    </dependencies>
+
+    <!-- Build configuration and plugins used during `mvn package` and `mvn spring-boot:run` -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId> <!-- enables running and packaging Spring Boot apps with Maven -->
+            </plugin>
+        </plugins>
+    </build>
+</project>

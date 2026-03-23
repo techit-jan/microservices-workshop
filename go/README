@@ -1,0 +1,5 @@
+#GO
+Source: main.go
+Package Manager: go
+Dependency File: go.mod
+Runtime: go

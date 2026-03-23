@@ -1,0 +1,5 @@
+#JAVASCRIPT
+Source: main.js
+Package Manager: npm
+Dependency File: package.json
+Runtime: node

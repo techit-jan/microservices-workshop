@@ -1,0 +1,8 @@
+#PYTHON
+Source: main.py
+Package Manager: pip
+Dependency File: requirements.txt
+Runtime: uvicorn
+
+########################################
+Install: pip install -r requirements.txt
