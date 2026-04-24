@@ -12,8 +12,8 @@ void logInfo(Map<String, dynamic> fields) {
 }
 
 void main() async {
-  final server = await HttpServer.bind('0.0.0.0', 8080);
-  print('Server running on http://localhost:8080');
+  final server = await HttpServer.bind('0.0.0.0', 8086);
+  print('Server running on http://localhost:8086');
 
   await for (HttpRequest request in server) {
     if (request.uri.path == '/hello-world') {
@@ -36,7 +36,32 @@ void main() async {
         ..headers.contentType = ContentType.json
         ..write(jsonEncode(responseData));
 
-    } else {
+    }else if (request.uri.path == '/env-variable') {
+      
+      final responseData = {
+        "code": "200",
+        "message": "Success",
+        "config": {
+          "database_uri": Platform.environment['DATABASE_URI'] ?? 'Not Set',
+          "redis_endpoint": Platform.environment['REDIS_ENDPOINT'] ?? 'Not Set',
+        }
+      };
+
+      // ✅ ใช้ logger
+      logInfo({
+        "code": "200",
+        "service": "env-variable",
+        "employee_id": "1111",
+        "message": "Success"
+      });
+
+      request.response
+        ..statusCode = HttpStatus.ok
+        ..headers.contentType = ContentType.json
+        ..write(jsonEncode(responseData));
+
+    } 
+     else {
       request.response
         ..statusCode = HttpStatus.notFound
         ..headers.contentType = ContentType.json

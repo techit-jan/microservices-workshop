@@ -3,3 +3,11 @@ Source: main.rs
 Package Manager: cargo
 Dependency File: Cargo.toml
 Executeable File
+
+#How to run
+./script.bash
+
+#environment variables
+example:
+DATABASE_URI=11.1.111.11
+REDIS_ENDPOINT=22.2.222.22

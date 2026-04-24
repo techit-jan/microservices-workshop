@@ -1,0 +1,1 @@
+{"version":1,"defects":{"AddTest::testBadAddShouldFail":3},"times":{"AddTest::testAddSuccess":0.004,"AddTest::testAddFailCase":0.001,"AddTest::testBadAddShouldFail":0.002}}

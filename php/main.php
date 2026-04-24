@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . "/test_function.php";
 
 header("Content-Type: application/json");
 $path = "main.php";
@@ -30,6 +31,31 @@ if ($uri === '/'.$path.'/hello-world' && $method === 'GET') {
     echo json_encode([
         "code" => "200",
         "message" => "Hello World"
+    ]);
+    exit;
+}
+
+// routing
+if ($uri === '/'.$path.'/env_variable' && $method === 'GET') {
+    http_response_code(200);
+
+    $database_uri = getenv("DATABASE_URI");
+    $redis_endpoint = getenv("REDIS_ENDPOINT");
+
+    log_json("INFO", [
+        "code" => "200",
+        "service" => "env_variable",
+        "employee_id" => "1111",
+        "message" => "Success"
+    ]);
+
+    echo json_encode([
+        "code" => "200",
+        "message" => "Success",
+        "config" => [
+            "database_uri" => $database_uri,
+            "redis_endpoint" => $redis_endpoint
+        ]
     ]);
     exit;
 }

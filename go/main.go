@@ -12,6 +12,16 @@ type ApiResponse struct {
 	Message string `json:"message"`
 }
 
+type Config struct {
+	DatabaseUri   string `json:"database_uri"`
+	RedisEndpoint string `json:"redis_endpoint"`
+}
+type ApiResponseEnv struct {
+	Code    string `json:"code"`
+	Message string `json:"message"`
+	Config  Config `json:"config"`
+}
+
 // 🔥 log helper
 func logJSON(level string, fields map[string]string) {
 	logData := map[string]any{
@@ -48,8 +58,37 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
+func add(a int, b int) int {
+	return a + b
+}
+
+func badAdd(a int, b int) int {
+	return a - b
+}
+
+func envVariableHandler(w http.ResponseWriter, r *http.Request) {
+	// ✅ ใช้แบบนี้แทน log.Printf
+	logJSON("INFO", map[string]string{
+		"code":        "200",
+		"service":     "env-variable",
+		"employee_id": "1111",
+		"message":     "Success",
+	})
+
+	writeJSON(w, http.StatusOK, ApiResponseEnv{
+		Code:    "200",
+		Message: "Success",
+		Config: Config{
+			DatabaseUri:   os.Getenv("DATABASE_URI"),
+			RedisEndpoint: os.Getenv("REDIS_ENDPOINT"),
+		},
+	})
+}
+
 func main() {
 	http.HandleFunc("/hello-world", helloHandler)
 
-	http.ListenAndServe(":8080", nil)
+	http.HandleFunc("/env-variable", envVariableHandler)
+
+	http.ListenAndServe(":8085", nil)
 }

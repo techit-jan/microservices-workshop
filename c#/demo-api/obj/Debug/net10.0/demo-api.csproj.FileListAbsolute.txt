@@ -38,3 +38,4 @@
 /Users/techitjansongsang/Desktop/WorkSpace/ssw_project/workshop/c#/demo-api/bin/Debug/net10.0/Serilog.Sinks.File.dll
 /Users/techitjansongsang/Desktop/WorkSpace/ssw_project/workshop/c#/demo-api/obj/Debug/net10.0/demo-api.csproj.AssemblyReference.cache
 /Users/techitjansongsang/Desktop/WorkSpace/ssw_project/workshop/c#/demo-api/obj/Debug/net10.0/demo-api.csproj.Up2Date
+/Users/techitjansongsang/Desktop/WorkSpace/ssw_project/workshop/c#/demo-api/obj/Debug/net10.0/demo-api.sourcelink.json

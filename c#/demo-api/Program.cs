@@ -14,7 +14,7 @@ builder.Host.UseSerilog();
 
 builder.Services.AddControllers();
 
-builder.WebHost.UseUrls("http://localhost:8080");
+builder.WebHost.UseUrls("http://0.0.0.0:8087");
 
 var app = builder.Build();
 

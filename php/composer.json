@@ -1,0 +1,17 @@
+{
+    "name": "techitjansongsang/php",
+    "autoload": {
+        "psr-4": {
+            "Techitjansongsang\\Php\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "nungpalm",
+            "email": "77908221+nungpalm@users.noreply.github.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    }
+}

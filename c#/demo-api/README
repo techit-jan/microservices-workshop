@@ -1,5 +1,0 @@
-#C#
-Source: Program.cs
-Package Manager: dotnet
-Dependency File: demo-api.csproj
-Runtime: dotnet

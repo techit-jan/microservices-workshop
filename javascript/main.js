@@ -31,7 +31,29 @@ app.get("/hello-world", (req, res) => {
     });
 });
 
+// API: GET
+app.get("/env-variable", (req, res) => {
+    log({
+        level: "INFO",
+        fields: {
+          code: "200",
+          service: "env-variable",
+          employee_id: "1111",
+          message: "Success",
+        },
+    });
+
+    res.json({
+      code: "200",
+      message: "Success",
+      config: {
+        database_uri: process.env.DATABASE_URI,
+        redis_endpoint: process.env.REDIS_ENDPOINT,
+      }
+    });
+});
+
 // start server
-app.listen(8000, () => {
-  console.log("Server running on http://localhost:8000");
+app.listen(8083, () => {
+  console.log("Server running on http://localhost:8083");
 });

@@ -1,0 +1,13 @@
+#C#
+Source: Program.cs
+Package Manager: dotnet
+Dependency File: demo-api.csproj
+Runtime: 
+
+#How to run
+./script.bash
+
+#environment variables
+example:
+DATABASE_URI=11.1.111.11
+REDIS_ENDPOINT=22.2.222.22
